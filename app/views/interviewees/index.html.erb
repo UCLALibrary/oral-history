@@ -1,0 +1,20 @@
+
+<div class="container">  
+  <h2>Browse Interviewees by Last Name</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <%= link_to 'All', interviewees_path(letter: nil), :class => 'btn btn-default btn-interviewees-sort' %>
+      <% ("a".."z").to_a.each do |letter| %>
+        <%= link_to letter, interviewees_path(letter: letter), :class => 'btn btn-default btn-interviewees-sort' %>
+      
+      <% end %>
+    </div>
+    <div class="col-sm-9">
+      <% @names.each do |name| %>
+        <p><a href="#"><%= name %></a></p>   
+      <% end %>
+    </div>
+  </div>
+</div>

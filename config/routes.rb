@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'interviewees', to: 'interviewees#index', as: 'interviewees'
+
   mount DelayedJobWeb, at: "/delayed_job"
 
   get 'pages/contact', to: 'pages#contact', as: 'contact'
