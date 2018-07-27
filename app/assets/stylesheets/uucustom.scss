@@ -137,6 +137,7 @@ h2>.hero-ribbon-blue, h3>.hero-ribbon-gray {
 
 .navbar-nav > li > a {
   color: #fff;
+  padding: 15px 8px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -185,11 +186,11 @@ h2>.hero-ribbon-blue, h3>.hero-ribbon-gray {
     }
   }
 
-  #main-container.container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+  .container {
+    // margin-right: auto;
+    // margin-left: auto;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .names-column {
