@@ -85,7 +85,16 @@ h2>.hero-ribbon-blue, h3>.hero-ribbon-gray {
 
 .btn-interviewees-sort {
   display: inline-block;
-  width: 44px;
+  width: 45%;
+  margin-bottom: 4px;
+  color: #333333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+
+.btn-interviewees-all {
+  display: inline-block;
+  width: 92%;
   margin-bottom: 4px;
 }
 
@@ -145,13 +154,13 @@ h2>.hero-ribbon-blue, h3>.hero-ribbon-gray {
   font-family: "Times New Roman";
 }
 
-@media screen and (min-width: 769px) and (max-width: 991px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
   #header-navbar .navbar-brand {
     overflow: hidden;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #header-navbar .navbar-brand {
     background-position: left 5px center;
     width: 160px;
@@ -174,6 +183,22 @@ h2>.hero-ribbon-blue, h3>.hero-ribbon-gray {
         padding-bottom: 10px;
       }
     }
+  }
+
+  #main-container.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .names-column {
+    margin-top: 2.85714rem;
+  }
+
+  /* INTERVIEWEE SORT BUTTONS */
+  .btn-interviewees-sort, .btn-interviewees-all {
+    width: 44px;
   }
 }
 
