@@ -1,16 +1,12 @@
 <div class="container">
-  
   <div class="u-heading-v2-5--bottom g-brd-primary ">  
     <h2 class="u-heading-v2__title text-uppercase g-font-weight-300 mb-0 g-mt-40">Browse Interviewees by Last Name</h2>
   </div>
-  
-
   <div class="row g-mt-40">
     <div class="col-sm-3">
       <%= link_to 'All', interviewees_path(letter: nil), :class => 'btn btn-default btn-interviewees-sort btn-interviewees-all' %>
       <% ("A".."Z").to_a.each do |letter| %>
         <%= link_to letter, interviewees_path(letter: letter.downcase), :class => 'btn btn-default btn-interviewees-sort' %>
-      
       <% end %>
     </div>
     <div class="col-sm-9 names-column">
