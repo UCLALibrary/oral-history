@@ -7,8 +7,8 @@ ADD ops/env.conf /etc/nginx/main.d/env.conf
 
 RUN cd /home/app/webapp && \
     /sbin/setuser app git fetch -ap && \
-    /sbin/setuser app git checkout -f $BRANCH && \
-    /sbin/setuser app git pull origin $BRANCH && \
+    /sbin/setuser app git checkout -f master && \
+    /sbin/setuser app git pull origin master && \
     /sbin/setuser app git clean -fd && \
     chown -R app $APP_HOME && \
     (/sbin/setuser app bundle check || /sbin/setuser app bundle install) && \
