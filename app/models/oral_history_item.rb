@@ -250,7 +250,7 @@ class OralHistoryItem
             
           end
         end
-        if !has_xml_transcripts && history.should_process_pdf_transcripts
+        if !has_xml_transcripts #&& history.should_process_pdf_transcripts
           IndexPdfTranscriptJob.perform_later(history.id, pdf_text)
         end
       end
