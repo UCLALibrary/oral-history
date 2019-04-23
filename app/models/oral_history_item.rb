@@ -103,7 +103,6 @@ class OralHistoryItem
         has_xml_transcripts = false
         pdf_text = ''
         history.attributes["children_t"] = []
-        history.attributes["transcripts_t"] = []
         history.attributes["transcripts_json_t"] = []
         history.attributes["description_t"] = []
         history.attributes['person_present_t'] = []
@@ -127,10 +126,6 @@ class OralHistoryItem
                 history.attributes["title_t"] << title_text
               end
             end
-          elsif child.name == "abstract"
-            history.attributes[child.name + "_display"] = child.text
-            history.attributes[child.name + "_t"] ||= []
-            history.attributes[child.name + "_t"] << child.text
           elsif child.name == "typeOfResource"
             history.attributes["type_of_resource_display"] = child.text
             history.attributes["type_of_resource_t"] ||= []
@@ -250,7 +245,7 @@ class OralHistoryItem
             
           end
         end
-        if !has_xml_transcripts #&& history.should_process_pdf_transcripts
+        if !has_xml_transcripts && history.should_process_pdf_transcripts
           IndexPdfTranscriptJob.perform_later(history.id, pdf_text)
         end
       end
