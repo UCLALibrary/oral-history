@@ -49,12 +49,13 @@ module ApplicationHelper
     return result
   end
 
-  def no_images(links)
+  def no_unwanted(links)
     links.reject {|name, value| name.match('Narrator') if name.present? }
+    links.reject {|name, value| name.match('TEI') if name.present? }
   end
 
-  def not_only_images?(links)
-    no_images(links).size > 0
+  def not_unwanted?(links)
+    no_unwanted(links).size > 0
   end
 
   def file_links(options = {})
