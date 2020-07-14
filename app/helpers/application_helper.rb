@@ -49,12 +49,12 @@ module ApplicationHelper
     return result
   end
 
-  def no_unwanted(links)
+  def allowed_links(links)
     links.reject {|name, value| name.match('Narrator') if name.present? }
     links.reject {|name, value| name.match('TEI') if name.present? }
   end
 
-  def not_unwanted?(links)
+  def allowed_links_present?(links)
     no_unwanted(links).size > 0
   end
 
