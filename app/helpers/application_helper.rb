@@ -55,7 +55,7 @@ module ApplicationHelper
   end
 
   def allowed_links_present?(links)
-    no_unwanted(links).size > 0
+    allowed_links(links).size > 0
   end
 
   def file_links(options = {})
