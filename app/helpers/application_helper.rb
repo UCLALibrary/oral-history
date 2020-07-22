@@ -50,8 +50,7 @@ module ApplicationHelper
   end
 
   def allowed_links(links)
-    links.reject {|name, value| name.match('Narrator') if name.present? }
-    links.reject {|name, value| name.match('TEI') if name.present? }
+    links.reject {|name, value| name.match('Narrator') || name.match('TEI') if name.present? }
   end
 
   def allowed_links_present?(links)
