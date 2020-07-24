@@ -27,9 +27,7 @@
                 <dd class="blacklight-<%= field_name.parameterize %>"><%= value.html_safe %></dd>
               </dl>
             </div>
-            <% if k == 4 %>
-              <% break %>
-            <% end %>
+            <% break if k >= 4 %>
           <% end %>
         <% end %>
       <% end %>
