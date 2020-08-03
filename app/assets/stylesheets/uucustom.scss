@@ -342,6 +342,19 @@ a.footer-link {
   font-size: 12px;
 }
 
+a.admin-footer-link {
+  color: #fff !important;
+  line-height: 2.25;
+  font-size: 12px;
+}
+
+a.admin-footer-link:hover {
+  color: #fff !important;
+  line-height: 2.25;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
 .padding-top {
   padding-top: 80px;
   padding-bottom: 20px;
