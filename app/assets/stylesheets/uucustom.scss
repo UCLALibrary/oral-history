@@ -182,6 +182,13 @@ h2>.hero-ribbon-blue, h3>.hero-ribbon-gray {
   border-color: #1e4b87;
 }
 
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+  color: #555;
+  background-color: #fff;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
 /* NAVIGATION */
 
 .navbar {
@@ -396,12 +403,12 @@ a.admin-footer-link:hover {
 
 .panel-success > .panel-heading, .facet_limit-active > .panel-heading {
     color: #fff;
-    background-color: #3284bf;
-    border-color: #3284bf;
+    background-color: #1e4b87;
+    border-color: #1e4b87;
 }
 
 .panel-success, .facet_limit-active {
-    border-color: #3284bf;
+    border-color: #1e4b87;
 }
 
 .text-success, .facet-values li .selected {
@@ -409,7 +416,7 @@ a.admin-footer-link:hover {
 }
 
 .panel-success > .panel-heading + .panel-collapse > .panel-body, .facet_limit-active > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #3284bf;
+  border-top-color: #1e4b87;
 }
 
 .facet_limit-active > .panel-heading.collapse-toggle .panel-title:after {
