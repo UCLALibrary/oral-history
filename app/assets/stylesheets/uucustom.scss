@@ -113,8 +113,8 @@ h2>.hero-ribbon-blue, h3>.hero-ribbon-gray {
 
 /* BUTTON STYLES */
 .btn-primary  {
-  background-color: #3284bf !important;
-  border-color: #3284bf !important;
+  background-color: #1e4b87 !important;
+  border-color: #1e4b87 !important;
 }
 .btn-primary:hover, .btn-primary.active {
   border-color: #ffe800 !important;
@@ -131,8 +131,8 @@ h2>.hero-ribbon-blue, h3>.hero-ribbon-gray {
 }
 
 .u-btn-outline-primary {
-  border-color: #3284bf !important;
-  color: #3284bf !important;
+  border-color: #1e4b87 !important;
+  color: #1e4b87 !important;
   background-color: transparent !important;
 }
 
@@ -309,7 +309,7 @@ span.input-group-addon.for-search-field {
 }
 
 .form-control:focus, .custom-select:focus {
-    border-color: #3284bf;
+    border-color: #1e4b87;
 }
 
 .hero-links:hover {
@@ -437,6 +437,10 @@ a.admin-footer-link:hover {
   padding-bottom: 20px;
 }
 
+.g-color-gray-dark-v5 {
+  color: #555 !important;
+}
+
 #sidebar {
   .panel-body {
     padding: 0 15px;
@@ -460,11 +464,11 @@ a.admin-footer-link:hover {
 }
 
 .u-accordion-brd-primary .u-accordion__header [aria-expanded="true"] {
-  border-color: #3284bf !important;
+  border-color: #1e4b87 !important;
 }
 
 .u-accordion-color-primary .u-accordion__header [aria-expanded="true"] {
-  color: #3284bf !important;
+  color: #1e4b87 !important;
 }
 
 .u-accordion__control-icon i:nth-child(1) {
@@ -790,7 +794,7 @@ span.speaker ~ p {
 .drag-helper {
   padding-right: 18px;
   margin-top: -10px;
-  color: #3284bf;
+  color: #1e4b87;
 }
  /* increase size of transcript window and
     hide drag helper text in ie and edge */
@@ -838,7 +842,7 @@ span.speaker ~ p {
 
 /* ADMIN PAGE */
 .progress-bar {
-  background-color: #3284bf;
+  background-color: #1e4b87;
 }
 
 .well {
@@ -872,7 +876,7 @@ body.blacklight-full_text.blacklight-full_text-index h3.index_title.document-tit
 }
 
 .spinner {
-  border: 4px solid #3284bf;
+  border: 4px solid #1e4b87;
   border-top: 4px solid #ffe800;
   border-radius: 50%;
   width: 20px;
