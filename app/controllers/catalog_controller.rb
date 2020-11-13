@@ -20,7 +20,7 @@ class CatalogController < ApplicationController
     config.default_solr_params = {
       rows: 10,
       :"hl" => true,
-      :"hl.fl" => "abstract_t, biographical_t, subject_t, description_t, audio_b, extent_t, language_t, author_t, interviewee_t, title_t, subtitle_t, series_t",
+      :"hl.fl" => "subtitle_t",
       :"hl.simple.pre" => "<span class='label label-warning'>",
       :"hl.simple.post" => "</span>",
       :"hl.fragsize" => 200,
@@ -44,7 +44,7 @@ class CatalogController < ApplicationController
       :"hl" => true,
       :"hl.fragsize" => 200,
       :"hl.preserveMulti" => true,
-      :"hl.fl" => "biographical_t, subject_t, description_t, person_present_t, place_t, supporting_documents_t, interviewer_history_t, process_interview_t, audio_b, extent_t, rights_t, language_t, author_t, interviewee_t, title_t, subtitle_t, series_t, links_t, abstract_t",
+      :"hl.fl" => "subtitle_t",
       :"hl.simple.pre" => "<span class='label label-warning'>",
       :"hl.simple.post" => "</span>",
       :"hl.alternateField" => "dd"
@@ -122,26 +122,26 @@ class CatalogController < ApplicationController
     config.add_index_field 'abstract_t', label: 'Series Statement', highlight: true, solr_params: { :"hl.alternateField" => "dd", :"hl.maxAlternateFieldLength" => 100, :"hl.highlightAlternate" => true  }, helper_method: 'index_filter'
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'subtitle_t', label: 'Subtitle'
+    config.add_show_field 'subtitle_t', label: 'Subtitle', highlight: true
     config.add_show_field 'series_t', label: 'Series', link_to_search: "series_facet", helper_method: 'highlightable_series_link'
     config.add_show_field 'subject_t', label: 'Topic', helper_method: :split_multiple
-    config.add_show_field 'contributor_display', label: 'Interviewer'
-    config.add_show_field 'author_t', label: 'Interviewer'
-    config.add_show_field 'interviewee_t', label: 'Interviewee'
-    config.add_show_field 'person_present_t', label: 'Persons Present'
-    config.add_show_field 'place_t', label: 'Place Conducted'
-    config.add_show_field 'supporting_documents_t', label: 'Supporting Documents'
-    config.add_show_field 'interviewer_history_t', label: 'Interviewer Background and Preparation'
-    config.add_show_field 'process_interview_t', label: 'Processing of Interview'
-    config.add_show_field 'publisher_display', label: 'Publisher'
-    config.add_show_field 'pub_date', label: 'Date'
-    config.add_show_field 'extent_t', label: 'Length'
+    config.add_show_field 'contributor_display', label: 'Interviewer', highlight: true
+    config.add_show_field 'author_t', label: 'Interviewer', highlight: true
+    config.add_show_field 'interviewee_t', label: 'Interviewee', highlight: true
+    config.add_show_field 'person_present_t', label: 'Persons Present', highlight: true
+    config.add_show_field 'place_t', label: 'Place Conducted', highlight: true
+    config.add_show_field 'supporting_documents_t', label: 'Supporting Documents', highlight: true
+    config.add_show_field 'interviewer_history_t', label: 'Interviewer Background and Preparation', highlight: true
+    config.add_show_field 'process_interview_t', label: 'Processing of Interview', highlight: true
+    config.add_show_field 'publisher_display', label: 'Publisher', highlight: true
+    config.add_show_field 'pub_date', label: 'Date', highlight: true
+    config.add_show_field 'extent_t', label: 'Length', highlight: true
     config.add_show_field 'language_t', label: 'Language'
-    config.add_show_field 'coverage_display', label: 'Period Covered'
-    config.add_show_field 'rights_t', label: 'Copyright'
+    config.add_show_field 'coverage_display', label: 'Period Covered', highlight: true
+    config.add_show_field 'rights_t', label: 'Copyright', highlight: true
     config.add_show_field 'audio_b', label: 'Audio', helper_method: 'audio_icon'
     config.add_show_field 'links_t', label: 'Files', helper_method: 'file_links'
-    config.add_show_field 'abstract_t', label: 'Series Statement'
+    config.add_show_field 'abstract_t', label: 'Series Statement', highlight: true
     config.add_show_field 'interview_abstract_t', label: 'Abstract'
  #   config.add_show_field 'author_vern_display', label: 'Author'
  #   config.add_show_field 'format', label: 'Format'
