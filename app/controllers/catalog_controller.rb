@@ -42,7 +42,7 @@ class CatalogController < ApplicationController
      # rows: 1,
      # q: '{!term f=id v=$id}'
       :"hl" => true,
-      :"hl.fragsize" => 0,
+      :"hl.fragsize" => 200,
       :"hl.preserveMulti" => true,
       :"hl.fl" => "biographical_t, subject_t, description_t, person_present_t, place_t, supporting_documents_t, interviewer_history_t, process_interview_t, audio_b, extent_t, rights_t, language_t, author_t, interviewee_t, title_t, subtitle_t, series_t, links_t, abstract_t",
       :"hl.simple.pre" => "<span class='label label-warning'>",
@@ -242,13 +242,13 @@ class CatalogController < ApplicationController
 
   end
 
-  # Override to add highlighing to show - from Blacklight 6.23
+  # Override to add highlighing to show - from Blacklight 6.12
   # Currently using Blacklight 7.10 default show method
   # TODO(April): update highlighting on show page
 
   # def show
   #   search_service = Blacklight::SearchService.new(config: blacklight_config, user_params: params)
-  #   @response, @document = search_service.fetch params[:id], {
+  #   deprecated_response, @document = search_service.fetch params[:id], {
   #     :"hl.q" => current_search_session.try(:query_params).try(:[], "q"),
   #     :df => blacklight_config.try(:default_document_solr_params).try(:[], :"hl.fl")
   #   }
@@ -258,6 +258,21 @@ class CatalogController < ApplicationController
   #     additional_export_formats(@document, format)
   #   end
   # end
+
+  def show
+    deprecated_response, @document = search_service.fetch params[:id], {
+      :"hl.q" => current_search_session.try(:query_params).try(:[], "q"),
+      :df => blacklight_config.try(:default_document_solr_params).try(:[], :"hl.fl")
+    }
+    @response = ActiveSupport::Deprecation::DeprecatedObjectProxy.new(deprecated_response, 'The @response instance variable is deprecated; use @document.response instead.')
+
+    respond_to do |format|
+      format.html { @search_context = setup_next_and_previous_documents }
+      format.json
+      additional_export_formats(@document, format)
+    end
+  end
+  
 
   # override from blacklight 6.12 to handle captcha
   def email
