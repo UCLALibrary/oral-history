@@ -53,11 +53,9 @@
             <dl class="dl-horizontal dl-invert show-page">
 
               <% doc_presenter.fields_to_render.each do |field_name, field, field_presenter| -%>
-                <% if should_render_show_field? document, field %>
-                  <% unless field_name == "links_t"%>
-                    <dt class="blacklight-<%= field_name.parameterize %>"><%= render_document_show_field_label document, label: field_presenter.label, field: field_name %></dt>
-                    <dd class="blacklight-<%= field_name.parameterize %>"><%= field_presenter.render %></dd>
-                  <% end -%>
+                <% unless field_name == "links_t"%>
+                  <dt class="blacklight-<%= field_name.parameterize %>"><%= render_document_show_field_label document, label: field_presenter.label, field: field_name %></dt>
+                  <dd class="blacklight-<%= field_name.parameterize %>"><%= field_presenter.render %></dd>
                 <% end -%>
               <% end %>
             </dl>
