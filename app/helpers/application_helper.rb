@@ -89,9 +89,10 @@ module ApplicationHelper
     query = current_search_session.query_params.values[1]
     field_value = options[:value][0]
 
-    if field_value.downcase.include? query.downcase
-      "<span class='label-warning'>#{ field_value }</span>".html_safe
-    end
-    "<span>#{ field_value }</span>".html_safe
+    field_value.downcase.gsub(/#{query.downcase}/, "<span class='label-warning'>#{ query }</span>" )
+    # if field_value.downcase.include? query.downcase
+    #   "<span class='label-warning'>#{ field_value }</span>".html_safe
+    # end
+    # "<span>#{ field_value }</span>".html_safe
   end
 end
