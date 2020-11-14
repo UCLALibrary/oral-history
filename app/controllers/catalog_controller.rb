@@ -122,7 +122,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'abstract_t', label: 'Series Statement', highlight: true, solr_params: { :"hl.alternateField" => "dd", :"hl.maxAlternateFieldLength" => 100, :"hl.highlightAlternate" => true  }, helper_method: 'index_filter'
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'subtitle_t', label: 'Subtitle', highlight: true
+    config.add_show_field 'subtitle_t', label: 'Subtitle', helper_method: 'render_highlighted_fields'
     config.add_show_field 'series_t', label: 'Series', link_to_search: "series_facet", helper_method: 'highlightable_series_link'
     config.add_show_field 'subject_t', label: 'Topic', helper_method: :split_multiple
     config.add_show_field 'contributor_display', label: 'Interviewer'
@@ -242,38 +242,7 @@ class CatalogController < ApplicationController
 
   end
 
-  # Override to add highlighing to show - from Blacklight 6.23
   # Currently using Blacklight 7.10 default show method
-  # TODO(April): update highlighting on show page
-
-  # v6.12
-  # def show
-  #   search_service = Blacklight::SearchService.new(config: blacklight_config, user_params: params)
-  #   @response, @document = search_service.fetch params[:id], {
-  #     :"hl.q" => current_search_session.try(:query_params).try(:[], "q"),
-  #     :df => blacklight_config.try(:default_document_solr_params).try(:[], :"hl.fl")
-  #   }
-  #   respond_to do |format|
-  #     format.html { setup_next_and_previous_documents }
-  #     format.json { render json: { response: { document: @document } } }
-  #     additional_export_formats(@document, format)
-  #   end
-  # end
-
-  # v7.10 overidden with extra block
-  def show
-    deprecated_response, @document = search_service.fetch params[:id], {
-      :"hl.q" => current_search_session.try(:query_params).try(:[], "q"),
-      :df => blacklight_config.try(:default_document_solr_params).try(:[], :"hl.fl")
-    }
-    @response = ActiveSupport::Deprecation::DeprecatedObjectProxy.new(deprecated_response, 'The @response instance variable is deprecated; use @document.response instead.')
-
-    respond_to do |format|
-      format.html { @search_context = setup_next_and_previous_documents }
-      format.json
-      additional_export_formats(@document, format)
-    end
-  end
 
   # override from blacklight 6.12 to handle captcha
   def email

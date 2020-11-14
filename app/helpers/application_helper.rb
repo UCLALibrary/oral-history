@@ -85,5 +85,13 @@ module ApplicationHelper
     image = thumbnail_url.present? ? thumbnail_url : "/avatar.jpg"
   end
 
+  def render_highlighted_fields options={}
+    query = current_search_session.query_params.values[1]
+    field_value = options[:value][0]
 
+    if field_value.downcase.include? query.downcase
+      "<span class='label-warning'>#{ field_value }</span>".html_safe
+    end
+    "<span>#{ field_value }</span>".html_safe
+  end
 end
