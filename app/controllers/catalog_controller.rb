@@ -126,8 +126,8 @@ class CatalogController < ApplicationController
     config.add_show_field 'series_t', label: 'Series', link_to_search: "series_facet", helper_method: 'highlightable_series_link'
     config.add_show_field 'subject_t', label: 'Topic', helper_method: :split_multiple
     config.add_show_field 'contributor_display', label: 'Interviewer'
-    config.add_show_field 'author_t', label: 'Interviewer'
-    config.add_show_field 'interviewee_t', label: 'Interviewee'
+    config.add_show_field 'author_t', label: 'Interviewer', highlight: true
+    config.add_show_field 'interviewee_t', label: 'Interviewee', highlight: true
     config.add_show_field 'person_present_t', label: 'Persons Present'
     config.add_show_field 'place_t', label: 'Place Conducted'
     config.add_show_field 'supporting_documents_t', label: 'Supporting Documents'
@@ -247,7 +247,11 @@ class CatalogController < ApplicationController
   # TODO(April): update highlighting on show page
 
   def show
-    deprecated_response, @document = search_service.fetch(params[:id])
+    deprecated_response, @document = search_service.fetch(params[:id], {
+          :"hl.q" => current_search_session.try(:query_params).try(:[], "q"),
+          :df => blacklight_config.try(:default_document_solr_params).try(:[], :"hl.fl")
+        })
+
     @response = ActiveSupport::Deprecation::DeprecatedObjectProxy.new(deprecated_response, 'The @response instance variable is deprecated; use @document.response instead.')
 
     respond_to do |format|
@@ -256,6 +260,20 @@ class CatalogController < ApplicationController
       additional_export_formats(@document, format)
     end
   end
+
+  # //old from previous version with specific information to make show
+  # def show
+  #   @response, @document = fetch params[:id], {
+  #     :"hl.q" => current_search_session.try(:query_params).try(:[], "q"),
+  #     :df => blacklight_config.try(:default_document_solr_params).try(:[], :"hl.fl")
+  #   }
+  #   respond_to do |format|
+  #     format.html { setup_next_and_previous_documents }
+  #     format.json { render json: { response: { document: @document } } }
+  #     additional_export_formats(@document, format)
+  #   end
+  # end
+
 
   # override from blacklight 6.12 to handle captcha
   def email

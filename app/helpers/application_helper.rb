@@ -36,8 +36,8 @@ module ApplicationHelper
     matches = []
     parsed_children.each do |child|
       match = {}
-      regex = Regexp.new("\\b(#{Regexp.escape(q)})\\b", Regexp::IGNORECASE | Regexp::MULTILINE)
-      if regex =~ child['description_t']
+      regex = Regexp.new("\\b(#{Regexp.escape(q)})\\b", Regexp::IGNORECASE | Regexp::MULTILINE) if q.present?
+      if regex  && regex =~ child['description_t']
         match['search_match'] = true
         match['highlighted_description'] = child['description_t'].gsub(regex, '<span class="label label-warning">\1</span>')
       else
@@ -55,6 +55,10 @@ module ApplicationHelper
 
   def highlightable_series_link(options={})
     link_to options[:value][0], root_path(f: {series_facet: options[:document]["series_t"]})
+  end
+
+  def exploding_link(options={})
+    raise 'hell'
   end
 
   def link_parser(links)
