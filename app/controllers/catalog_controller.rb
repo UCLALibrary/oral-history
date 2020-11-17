@@ -122,7 +122,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'abstract_t', label: 'Series Statement', highlight: true, solr_params: { :"hl.alternateField" => "dd", :"hl.maxAlternateFieldLength" => 100, :"hl.highlightAlternate" => true  }, helper_method: 'index_filter'
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'subtitle_t', label: 'Subtitle'
+    config.add_show_field 'subtitle_t', label: 'Subtitle', highlight: true
     config.add_show_field 'series_t', label: 'Series', highlight: true, link_to_search: "series_facet", helper_method: 'highlightable_series_link'
     config.add_show_field 'subject_t', label: 'Topic', highlight: true, helper_method: :split_multiple
     config.add_show_field 'contributor_display', highlight: true, label: 'Interviewer'
@@ -267,20 +267,6 @@ class CatalogController < ApplicationController
       additional_export_formats(@document, format)
     end
   end
-
-  # //old from previous version with specific information to make show
-  # def show
-  #   @response, @document = fetch params[:id], {
-  #     :"hl.q" => current_search_session.try(:query_params).try(:[], "q"),
-  #     :df => blacklight_config.try(:default_document_solr_params).try(:[], :"hl.fl")
-  #   }
-  #   respond_to do |format|
-  #     format.html { setup_next_and_previous_documents }
-  #     format.json { render json: { response: { document: @document } } }
-  #     additional_export_formats(@document, format)
-  #   end
-  # end
-
 
   # override from blacklight 6.12 to handle captcha
   def email

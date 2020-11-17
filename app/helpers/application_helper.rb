@@ -57,10 +57,6 @@ module ApplicationHelper
     link_to options[:value][0], root_path(f: {series_facet: options[:document]["series_t"]})
   end
 
-  def exploding_link(options={})
-    raise 'hell'
-  end
-
   def link_parser(links)
     result = {}
     links.each do |link|
