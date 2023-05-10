@@ -233,6 +233,11 @@ class OralHistoryItem
             history.attributes["abstract_t"] = []
             history.attributes["abstract_t"] << child.elements['mods:abstract'].text
           elsif child.name == "note"
+            if child.attributes == {}
+              history.attributes["admin_note_display"] = child.text
+              history.attributes["admin_note_t"] = []
+              history.attributes["admin_note_t"] << child.text
+            end
             if child.attributes['type'].to_s.match('biographical')
               history.attributes["biographical_display"] = child.text
               history.attributes["biographical_t"] = []
@@ -262,6 +267,7 @@ class OralHistoryItem
           elsif child.name == 'location'
             child.elements.each do |f|
               history.attributes['links_t'] << [f.text, f.attributes['displayLabel']].to_json
+              order = child.elements['mods:part'].present? ? child.elements['mods:part'].attributes['order'] : 1
               if f.attributes['displayLabel'] &&
                 has_xml_transcripts == false &&
                 history.attributes["transcripts_t"].blank? &&
@@ -269,6 +275,9 @@ class OralHistoryItem
                 f.text.match(/pdf/i)
                 history.should_process_pdf_transcripts = true
                 pdf_text = f.text
+                history.attributes["transcripts_json_t"] << {
+                  "order_i": order
+                }.to_json
               end
             end
           elsif child.name == 'physicalDescription'
@@ -386,8 +395,17 @@ class OralHistoryItem
     Delayed::Job.where("handler LIKE ? AND last_error IS ?", "%job_class: ProcessPeakJob%#{self.id}%", nil).present?
   end
 
+  def pdf_transcript_job_queued?
+    Delayed::Job.where("handler LIKE ? AND last_error IS ?", "%job_class: IndexPdfTranscriptJob%#{self.id}%", nil).present?
+  end
+
   def should_process_peaks?
     !has_peaks? && !peak_job_queued?
+  end
+
+  def should_process_pdf_transcripts
+    @should_process_pdf_transcripts ||= false
+    @should_process_pdf_transcripts && !pdf_transcript_job_queued?
   end
 
   def self.create_import_tmp_file
