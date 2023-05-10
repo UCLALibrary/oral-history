@@ -17,7 +17,7 @@ class AdminController < ApplicationController
     Delayed::Job.destroy_all
     redirect_to admin_path, notice: 'All jobs deleted.'
   end
-  
+
   def logs
     send_file(Rails.root.join('log/indexing.log'))
   end
