@@ -36,7 +36,8 @@ class OralHistoryItem
   end
 
   def self.get(args)
-    response = client(args).get_record(identifier: args[:identifier], metadata_prefix: 'mods')
+    set = args[:set] || "oralhistory"
+    response = client(args).get_record(identifier: args[:identifier], metadata_prefix: 'mods', set: set)
   end
 
 
