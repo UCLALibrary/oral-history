@@ -86,4 +86,4 @@ In Jenkins, select `docker_swarm_deploy` job. Use `Build with Parameters`. Selec
 
 Regarding `docker-compose.production.yml`: The delayed_job container is for scaling out processing of peaks for all of the audio files.
 However, the web container always has one worker.
-Stopping the delayed_job container will not stop jobs from being run.
+Stopping the delayed_job container will not stop jobs from being  run. 
