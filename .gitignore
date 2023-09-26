@@ -27,3 +27,6 @@ public/packs/*
 
 # Ignore local development history
 /.history
+
+# UCLA developers local helm config file for testing
+ucla_dev-oralhistory-values.yaml
