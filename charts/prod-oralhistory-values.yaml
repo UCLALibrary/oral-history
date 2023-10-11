@@ -25,6 +25,13 @@ solr:
     adminPassword: admin
   coreName: blacklight
   collection: blacklight-core
+  cloudEnabled: false
+  cloudBootstrap: false
+  collectionReplicas: 0
+  # Number of solr instances, including the main one
+  replicaCount: 1
+  zookeeper:
+    enabled: false
   persistence:
     enabled: true
     storageClass: "vsphere-csi-sc"
