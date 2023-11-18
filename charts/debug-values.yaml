@@ -67,7 +67,7 @@ web:
     DEPLOY_HOOK: CHANGEME
     DOCKER_PORTS: 80
     MAKE_WAVES: false
-    PASSENGER_APP_ENV: staging
+    PASSENGER_APP_ENV: production
 
     STAGING_HTTP_BASIC_USERNAME: "oralhistory"
     STAGING_HTTP_BASIC_PASSWORD: "oralhistory"
@@ -76,7 +76,7 @@ web:
     REGISTRY_URI: uclalibrary
     # TODO: Real value
     SITE_URI: oralhistory-k8s-test.library.ucla.edu
-    TAG: staging
+    TAG: prod
     TEST_DB: oral_history_test
 
 worker:
