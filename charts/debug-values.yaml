@@ -67,7 +67,7 @@ web:
     DEPLOY_HOOK: CHANGEME
     DOCKER_PORTS: 80
     MAKE_WAVES: false
-    PASSENGER_APP_ENV: development
+    PASSENGER_APP_ENV: test
 
     STAGING_HTTP_BASIC_USERNAME: "oralhistory"
     STAGING_HTTP_BASIC_PASSWORD: "oralhistory"
