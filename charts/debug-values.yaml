@@ -14,9 +14,15 @@ image:
 solr:
   # TODO: Solr heap size? docker-compose has SOLR_HEAP=4g
   replicaCount: 1
+  collectionReplicas: 1
   enabled: true
+
+  # Disable solr cloud
   cloudEnabled: false
   cloudBootstrap: false
+  zookeeper:
+    enabled: false
+
   image:
     repository: bitnami/solr
     # This is the image version, not the chart version.
