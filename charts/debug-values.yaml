@@ -64,7 +64,7 @@ postgresql:
 web:
   env:
     SOLR_ADMIN_USER: admin
-    SOLR_HOST: oral-history-public-web-solr
+    SOLR_HOST: oral-history-public-web-test-solr
     SOLR_PORT: 8983
     SOLR_URL: "http://${SOLR_ADMIN_USER}:${SOLR_ADMIN_PASSWORD}@${SOLR_HOST}:${SOLR_PORT}/solr/blacklight-core"
 
