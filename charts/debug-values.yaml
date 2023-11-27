@@ -13,8 +13,10 @@ image:
 # Chart documentation: https://github.com/bitnami/charts/tree/main/bitnami/solr
 solr:
   # TODO: Solr heap size? docker-compose has SOLR_HEAP=4g
+  replicaCount: 1
   enabled: true
   cloudEnabled: false
+  cloudBootstrap: false
   image:
     repository: bitnami/solr
     # This is the image version, not the chart version.
@@ -38,7 +40,6 @@ postgresql:
     tag: 12.3.0
 
   auth:
-    username: blacklight
     database: oral_history
     secretKeys:
       adminPasswordKey: POSTGRES_PASSWORD
