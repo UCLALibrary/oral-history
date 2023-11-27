@@ -44,17 +44,17 @@ spec:
             - name: SOLR_ADMIN_USER
               valueFrom:
                 configMapKeyRef:
-                  name: oralhistory-env
+                  name: oral-history-env
                   key: SOLR_ADMIN_USER
             - name: SOLR_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: oralhistory-env
+                  name: oral-history-env
                   key: SOLR_HOST
             - name: SOLR_PORT
               valueFrom:
                 configMapKeyRef:
-                  name: oralhistory-env
+                  name: oral-history-env
                   key: SOLR_PORT
             - name: SOLR_ADMIN_PASSWORD
               valueFrom:
