@@ -14,6 +14,7 @@ image:
 solr:
   # TODO: Solr heap size? docker-compose has SOLR_HEAP=4g
   enabled: true
+  cloudEnabled: false
   image:
     repository: bitnami/solr
     # This is the image version, not the chart version.
