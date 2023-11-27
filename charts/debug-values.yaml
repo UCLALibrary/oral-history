@@ -74,7 +74,7 @@ web:
     DEPLOY_HOOK: CHANGEME
     DOCKER_PORTS: 80
     MAKE_WAVES: false
-    PASSENGER_APP_ENV: development
+    PASSENGER_APP_ENV: test
 
     STAGING_HTTP_BASIC_USERNAME: "oralhistory"
     STAGING_HTTP_BASIC_PASSWORD: "oralhistory"
@@ -82,8 +82,8 @@ web:
     REGISTRY_HOST: index.docker.io/
     REGISTRY_URI: uclalibrary
     # TODO: Real value
-    SITE_URI: oralhistory.test
-    TAG: dev
+    SITE_URI: oralhistory-k8s-test.library.ucla.edu
+    TAG: test
     TEST_DB: oral_history
 
 worker:
