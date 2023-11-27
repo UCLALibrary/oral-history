@@ -70,7 +70,7 @@ web:
     SOLR_PORT: 8983
 
     POSTGRES_DB: oral_history
-    POSTGRES_HOST: postgres
+    POSTGRES_HOST: oral-history-public-web-test-postgresql
 
     DEPLOY_HOOK: CHANGEME
     DOCKER_PORTS: 80
