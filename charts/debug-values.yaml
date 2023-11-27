@@ -14,6 +14,7 @@ image:
 solr:
   # TODO: Solr heap size? docker-compose has SOLR_HEAP=4g
   enabled: true
+  replicaCount: 1
   image:
     repository: bitnami/solr
     # This is the image version, not the chart version.
@@ -67,7 +68,7 @@ web:
     DEPLOY_HOOK: CHANGEME
     DOCKER_PORTS: 80
     MAKE_WAVES: false
-    PASSENGER_APP_ENV: test
+    PASSENGER_APP_ENV: development
 
     STAGING_HTTP_BASIC_USERNAME: "oralhistory"
     STAGING_HTTP_BASIC_PASSWORD: "oralhistory"
@@ -75,9 +76,9 @@ web:
     REGISTRY_HOST: index.docker.io/
     REGISTRY_URI: uclalibrary
     # TODO: Real value
-    SITE_URI: oralhistory-k8s-test.library.ucla.edu
-    TAG: prod
-    TEST_DB: oral_history_test
+    SITE_URI: oralhistory.test
+    TAG: dev
+    TEST_DB: oral_history
 
 worker:
   replicaCount: 1
@@ -145,7 +146,9 @@ ingress:
     - host: oralhistory-k8s-test.library.ucla.edu
       paths:
         - "/"
-
+    - host: oralhistory.test
+      paths:
+        - "/"
   tls: []
 
 resources: {}
