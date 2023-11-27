@@ -17,6 +17,8 @@ solr:
   collectionReplicas: 1
   enabled: true
 
+  coreNames: ["blacklight-core"]
+
   # Disable solr cloud
   cloudEnabled: false
   cloudBootstrap: false
