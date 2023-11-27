@@ -41,7 +41,7 @@ postgresql:
     database: oral_history
     secretKeys:
       adminPasswordKey: POSTGRES_PASSWORD
-      userPasswordKey: POSTGRES_PASSWORD
+      userPasswordKey: POSTGRES_USER
     existingSecret: oral-history-secrets
   service:
     ports:
@@ -62,7 +62,6 @@ web:
 
     POSTGRES_DB: oral_history
     POSTGRES_HOST: postgres
-    POSTGRES_USER: blacklight
 
     DEPLOY_HOOK: CHANGEME
     DOCKER_PORTS: 80
@@ -107,6 +106,9 @@ externalsecrets:
         - secretKey: POSTGRES_PASSWORD
           remoteRef:
             key: /systems/prodrke01/oh-public/db_password
+        - secretKey: POSTGRES_USER
+          remoteRef:
+            key: /systems/prodrke01/oh-public/db_username
         - secretKey: SECRET_KEY_BASE
           remoteRef:
             key: /systems/prodrke01/oh-public/secret_key_base
