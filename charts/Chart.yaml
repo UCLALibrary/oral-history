@@ -31,6 +31,6 @@ dependencies:
   - name: solr
     # This is the chart version, not the image version.
     # TODO: Be sure chart versions here are compatible with image verions in values files.
-    version: 5.1.7
+    version: 7.2.1
     repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
     condition: solr.enabled
