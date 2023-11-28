@@ -156,9 +156,6 @@ ingress:
     - host: oralhistory-k8s-test.library.ucla.edu
       paths:
         - "/"
-    - host: oralhistory.test
-      paths:
-        - "/"
   tls: []
 
 resources: {}
