@@ -17,6 +17,13 @@ solr:
   collectionReplicas: 1
   enabled: true
 
+  javaMem: "-XX:MaxRAMPercentage=80"
+  resources:
+    limits:
+      memory: 4Gi
+    requests:
+      memory: 4Gi
+
   coreNames: ["blacklight-core"]
 
   # Disable solr cloud
@@ -64,16 +71,25 @@ postgresql:
 
 # TODO: Variable names and values were copied from .env - is this all right?
 web:
+  # Due to the current Helm template mechanism, any additional ENVs will have to be added in the oral-history-env ConfigMap template
   env:
+    # Solr Environment Variables
+    # The values should be matched with values used in the Solr Dependent Chart
     SOLR_ADMIN_USER: admin
+
+    # DNS pointer to the Solr Service Name
     SOLR_HOST: oral-history-public-web-test-solr
+
     SOLR_PORT: 8983
 
+    # Postgres environment variables
+    # The values should be matched with values used in the Postgre Dependent Chart
     POSTGRES_DB: oral_history
+
+    # DNS pointer to the Postgres Service Name
     POSTGRES_HOST: oral-history-public-web-test-postgresql
 
-    DEPLOY_HOOK: CHANGEME
-    DOCKER_PORTS: 80
+    # Rails specific environment variables
     MAKE_WAVES: true
     PASSENGER_APP_ENV: production
     RAILS_ENV: production
@@ -82,12 +98,7 @@ web:
     STAGING_HTTP_BASIC_USERNAME: "oralhistory"
     STAGING_HTTP_BASIC_PASSWORD: "oralhistory"
 
-    REGISTRY_HOST: index.docker.io/
-    REGISTRY_URI: uclalibrary
-    # TODO: Real value
     SITE_URI: oralhistory-k8s-test.library.ucla.edu
-    TAG: prod
-    TEST_DB: oral_history
 
 worker:
   replicaCount: 1
