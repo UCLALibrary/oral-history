@@ -90,17 +90,17 @@ web:
     POSTGRES_HOST: test-oral-history-public-web-postgresql
 
     # Rails specific environment variables
-    MAKE_WAVES: true
+    MAKE_WAVES: "true"
     PASSENGER_APP_ENV: production
     RAILS_ENV: production
     RACK_ENV: production
-    RAILS_LOG_TO_STDOUT: true
+    RAILS_LOG_TO_STDOUT: "true"
     SMTP_ADDRESS: smtp.ucla.edu
     SMTP_DOMAIN: library.ucla.edu
     SMTP_FROM: do-not-reply@library.ucla.edu
     SMTP_HOST: oralhistory-test.library.ucla.edu
     SMTP_HTTP_PROTOCOL: https
-    USE_HTTP_BASIC: true
+    USE_HTTP_BASIC: "true"
 
     SITE_URI: oralhistory-k8s-test.library.ucla.edu
 
