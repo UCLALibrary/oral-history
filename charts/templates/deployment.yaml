@@ -71,12 +71,22 @@ spec:
             httpGet:
               path: /
               port: http
+              {{- if .Values.web.env.USE_HTTP_BASIC -}}
+              httpHeaders:
+                - name: Authorization
+                  value: Basic b3JhbGhpc3Rvcnk6b3JhbGhpc2lzdG9yeQ==
+              {{- end }}
             initialDelaySeconds: 120
             periodSeconds: 30
           readinessProbe:
             httpGet:
               path: /
               port: http
+              {{- if .Values.web.env.USE_HTTP_BASIC -}}
+              httpHeaders:
+                - name: Authorization
+                  value: Basic b3JhbGhpc3Rvcnk6b3JhbGhpc2lzdG9yeQ==
+              {{- end }}
             initialDelaySeconds: 120
             periodSeconds: 30
           resources:
