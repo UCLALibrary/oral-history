@@ -68,25 +68,20 @@ spec:
               containerPort: 80
               protocol: TCP
           livenessProbe:
+            {{- if .Values.web.env.USE_HTTP_BASIC }}
+            exec:
+              command:
+                - curl
+                - -X
+                - GET
+                - -u
+                - "${STAGING_HTTP_BASIC_USERNAME}:${STAGING_HTTP_BASIC_PASSWORD}"
+                - http://localhost/
+            {{- else }}
             httpGet:
               path: /
               port: http
-              {{- if .Values.web.env.USE_HTTP_BASIC }}
-              httpHeaders:
-                - name: Authorization
-                  value: Basic b3JhbGhpc3Rvcnk6b3JhbGhpc3Rvcnk=
-              {{- end }}
-            initialDelaySeconds: 120
-            periodSeconds: 30
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
-              {{- if .Values.web.env.USE_HTTP_BASIC }}
-              httpHeaders:
-                - name: Authorization
-                  value: Basic b3JhbGhpc3Rvcnk6b3JhbGhpc3Rvcnk=
-              {{- end }}
+            {{- end }}
             initialDelaySeconds: 120
             periodSeconds: 30
           resources:
