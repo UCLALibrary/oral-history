@@ -74,7 +74,7 @@ spec:
               {{- if .Values.web.env.USE_HTTP_BASIC }}
               httpHeaders:
                 - name: Authorization
-                  value: Basic b3JhbGhpc3Rvcnk6b3JhbGhpc2lzdG9yeQ==
+                  value: Basic b3JhbGhpc3Rvcnk6b3JhbGhpc3Rvcnk=
               {{- end }}
             initialDelaySeconds: 120
             periodSeconds: 30
@@ -85,7 +85,7 @@ spec:
               {{- if .Values.web.env.USE_HTTP_BASIC }}
               httpHeaders:
                 - name: Authorization
-                  value: Basic b3JhbGhpc3Rvcnk6b3JhbGhpc2lzdG9yeQ==
+                  value: Basic b3JhbGhpc3Rvcnk6b3JhbGhpc3Rvcnk=
               {{- end }}
             initialDelaySeconds: 120
             periodSeconds: 30
