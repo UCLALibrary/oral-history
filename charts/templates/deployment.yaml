@@ -72,6 +72,7 @@ spec:
             exec:
               command:
                 - curl
+                - I
                 - -X
                 - GET
                 - -u
