@@ -75,34 +75,34 @@ web:
   env:
     # Solr Environment Variables
     # The values should be matched with values used in the Solr Dependent Chart
-    SOLR_ADMIN_USER: admin
+    SOLR_ADMIN_USER: "admin"
 
     # DNS pointer to the Solr Service Name
-    SOLR_HOST: stage-oral-history-public-web-solr
+    SOLR_HOST: "stage-oral-history-public-web-solr"
 
-    SOLR_PORT: 8983
+    SOLR_PORT: "8983"
 
     # Postgres environment variables
     # The values should be matched with values used in the Postgre Dependent Chart
-    POSTGRES_DB: oral_history
+    POSTGRES_DB: "oral_history"
 
     # DNS pointer to the Postgres Service Name
-    POSTGRES_HOST: stage-oral-history-public-web-postgresql
+    POSTGRES_HOST: "stage-oral-history-public-web-postgresql"
 
     # Rails specific environment variables
-    MAKE_WAVES: true
-    PASSENGER_APP_ENV: production
-    RAILS_ENV: production
-    RACK_ENV: production
-    RAILS_LOG_TO_STDOUT: true
-    SMTP_ADDRESS: smtp.ucla.edu
-    SMTP_DOMAIN: library.ucla.edu
-    SMTP_FROM: do-not-reply@library.ucla.edu
-    SMTP_HOST: oralhistory-stage.library.ucla.edu
-    SMTP_HTTP_PROTOCOL: https
-    USE_HTTP_BASIC: true
+    MAKE_WAVES: "true"
+    PASSENGER_APP_ENV: "production"
+    RAILS_ENV: "production"
+    RACK_ENV: "production"
+    RAILS_LOG_TO_STDOUT: "true"
+    SMTP_ADDRESS: "smtp.ucla.edu"
+    SMTP_DOMAIN: "library.ucla.edu"
+    SMTP_FROM: "do-not-reply@library.ucla.edu"
+    SMTP_HOST: "oralhistory-stage.library.ucla.edu"
+    SMTP_HTTP_PROTOCOL: "https"
+    USE_HTTP_BASIC: "true"
 
-    SITE_URI: oralhistory-k8s-stage.library.ucla.edu
+    SITE_URI: "oralhistory-k8s-stage.library.ucla.edu"
 
 worker:
   replicaCount: 1
