@@ -71,7 +71,7 @@ spec:
             httpGet:
               path: /
               port: http
-              {{- if .Values.web.env.USE_HTTP_BASIC -}}
+              {{- if .Values.web.env.USE_HTTP_BASIC }}
               httpHeaders:
                 - name: Authorization
                   value: Basic b3JhbGhpc3Rvcnk6b3JhbGhpc2lzdG9yeQ==
@@ -82,7 +82,7 @@ spec:
             httpGet:
               path: /
               port: http
-              {{- if .Values.web.env.USE_HTTP_BASIC -}}
+              {{- if .Values.web.env.USE_HTTP_BASIC }}
               httpHeaders:
                 - name: Authorization
                   value: Basic b3JhbGhpc3Rvcnk6b3JhbGhpc2lzdG9yeQ==
