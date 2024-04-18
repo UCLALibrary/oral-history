@@ -8,7 +8,8 @@ end
 gem 'rails', '~> 6.1'
 
 gem 'activejob-scheduler', git: 'https://github.com/notch8/activejob-scheduler.git'
-gem "delayed_job_web"
+gem 'axe-core-rspec'
+gem 'delayed_job_web'
 gem 'blacklight', '~> 7.33.1'
 gem 'blacklight-marc', '~> 7.0.0'
 gem 'blacklight_dynamic_sitemap'
@@ -21,7 +22,10 @@ gem 'daemons'
 gem 'delayed_job_active_record', '~> 4.1.4'
 gem 'devise', '~> 4.7.2'
 gem 'devise-guests', '~> 0.6'
+gem 'engine_cart'
+gem 'equivalent-xml'
 gem 'font-awesome-rails'
+gem 'i18n-tasks'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'json-waveform'
@@ -38,7 +42,12 @@ gem 'progress_job'
 gem 'puma', '~> 4.3.12'
 gem 'rollbar'
 gem 'rsolr', '>= 1.0'
-gem 'rspec-rails', '~> 3.8', group: [:development, :test]
+gem 'rspec-rails', '~> 6.1', group: [:development, :test]
+gem 'rspec-collection_matchers', '>= 1.0', group: [:development, :test]
+gem 'rubocop', '~> 1.0'
+gem "rspec-rails", "~> 6.1"
+gem 'rubocop-rspec'
+gem 'selenium-webdriver'
 gem 'ruby-audio', '~> 1.6.0'
 gem 'sass-rails', '>= 6'
 gem 'sentry-raven'
@@ -51,6 +60,7 @@ gem 'tzinfo', '~> 2.0', '>= 2.0.6'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'web-console', '>= 3.7.0', group: [:development]
+gem 'webmock', '~> 3.0'
 gem 'webpacker', '~> 3.1.0'
 gem 'webpacker-react', "~> 0.3.2"
 gem 'whenever', require: false

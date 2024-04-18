@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/                 http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2024-04-17T12:46:06Z</responseDate>
+  <request metadataPrefix="mods" verb="ListRecords">http://oh-staff.library.ucla.edu/oai/</request>
+  <ListRecords>
+    <record>
+      <header>
+        <identifier>21198/zz002khbqj</identifier>
+        <datestamp>2020-01-28</datestamp>
+      </header>
+      <metadata>
+        <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <mods:titleInfo>
+            <mods:title>Interview of Morgan Chu</mods:title>
+          </mods:titleInfo>
+          <mods:note type="processinterview" displayLabel="Processing of Interview">The interviewer prepared a timed log of the audio recording of the interview. Chu was given the opportunity to review the log in order to supply missing or misspelled names and to verify the accuracy of the content but made no changes.</mods:note>
+          <mods:note type="interviewerhistory" displayLabel="Interviewer Background and Preparation">The interview was conducted by Araceli Centanino, graduate student interviewer, UCLA Center for Oral History Research; C.Phil, U.S. history, UCLA. Centanino&#x2019;s dissertation focuses on postwar Los Angeles, social movements, and public education.  Centanino prepared for the interview by reading William Wei&#x2019;s The Asian American Movement, Steve Louie and Glen K. Omatsu's Asian Americans: The Movement, and Roots: An Asian American Reader, and various dissertations. She also viewed files from Chancellor Charles E. Young&#x2019;s administration in the UCLA Library&#x2019;s University Archives; studied the UCLA Center for Oral History Research&#x2019;s series of oral histories on the founding of UCLA&#x2019;s Ralph J. Bunche Center for African American Studies; and reviewed archival articles from the Daily Bruin about the founding of the ethnic studies centers.</mods:note>
+          <mods:note type="place" displayLabel="Place Conducted">Morgan Chu&#x2019;s office in Century City, California.</mods:note>
+          <mods:note type="biographical" displayLabel="Biographical Information">Los Angeles attorney. As a student at UCLA was involved in the drive for ethnic studies and the establishment of the UCLA Asian American Studies Center.</mods:note>
+          <mods:note type="personpresent" displayLabel="Persons Present">Chu and Centanino.</mods:note>
+          <mods:note type="supportingdocuments" displayLabel="Supporting Documents">Records relating to the interview are located in the office of the UCLA Library&#x2019;s Center for Oral History Research.</mods:note>
+          <mods:physicalDescription>
+            <mods:extent>3 hrs.</mods:extent>
+          </mods:physicalDescription>
+          <mods:identifier>21198/zz002khbqj</mods:identifier>
+          <mods:language>
+            <mods:languageTerm>eng</mods:languageTerm>
+          </mods:language>
+          <mods:name>
+            <mods:namePart>Centanino, Araceli</mods:namePart>
+            <mods:role>
+              <mods:roleTerm type="text">interviewer</mods:roleTerm>
+            </mods:role>
+          </mods:name>
+          <mods:name>
+            <mods:namePart>Chu, Morgan</mods:namePart>
+            <mods:role>
+              <mods:roleTerm type="text">interviewee</mods:roleTerm>
+            </mods:role>
+          </mods:name>
+          <mods:accessCondition>Regents of the University of California, UCLA Library.</mods:accessCondition>
+          <mods:subject authority="cohr">
+            <mods:topic>UCLA and University of California History</mods:topic>
+          </mods:subject>
+          <mods:subject authority="cohr">
+            <mods:topic>UCLA Research Centers and Programs</mods:topic>
+          </mods:subject>
+          <mods:subject authority="cohr">
+            <mods:topic>Asian American History</mods:topic>
+          </mods:subject>
+          <mods:relatedItem xlink:href="https://wowza.library.ucla.edu/dlp/definst/mp3:oralhistory/21198-zz002khbr2-2-submaster.mp3/playlist.m3u8" type="constituent">
+            <mods:titleInfo>
+              <mods:title>SESSION 1 (9/26/2017)</mods:title>
+            </mods:titleInfo>
+            <mods:identifier>21198/zz002khbr2</mods:identifier>
+            <mods:part order="1" type="session_audio"/>
+            <mods:tableOfContents>Birth and early childhood&#x2014;Family migration history&#x2014;Siblings&#x2019; occupations and family background&#x2014;Experiences in school growing up&#x2014;Decides to drop out of high school&#x2014;Applies to UCLA&#x2014;Rejected and repeats process of applying&#x2014;Admitted to UCLA but does not receive financial aid&#x2014;First quarter at UCLA&#x2014;Enrolls as engineering major&#x2014;Transfers out of major.</mods:tableOfContents>
+          </mods:relatedItem>
+          <mods:relatedItem xlink:href="https://wowza.library.ucla.edu/dlp/definst/mp3:oralhistory/21198-zz002khbsk-2-submaster.mp3/playlist.m3u8" type="constituent">
+            <mods:titleInfo>
+              <mods:title>SESSION 2 (10/2/2017)</mods:title>
+            </mods:titleInfo>
+            <mods:identifier>21198/zz002khbsk</mods:identifier>
+            <mods:part order="2" type="session_audio"/>
+            <mods:tableOfContents>Experiences growing up Chinese American&#x2014;Parents&#x2019; views of Japanese and of communism&#x2014;More on first year at UCLA&#x2014;Involvement in campus and political activities&#x2014;Elected to Student Legislative Council&#x2014;Goes to community meeting in Chinatown&#x2014;Meets wife, Helen&#x2014;English as a second language classes at Castelar Elementary&#x2014;Asian and Asian American groups on campus&#x2014;Tutors for High Potential Program&#x2014;Selected to chair informal student meetings&#x2014;Concept of Asian American studies&#x2014;Meets Yuji Ichioka&#x2014;The Asian American Studies Center (AASC)&#x2014;Administrators&#x2019; relationship to new ethnic studies centers--David Saxon&#x2019;s relationship to students&#x2014;Charles Z. Wilson&#x2014;Faculty and student resistance to ethnic studies&#x2014;Selecting leadership for AASC&#x2014;Organized research unit model versus department model&#x2014;AASC&#x2019;s early challenges&#x2014;Daily life in the AASC&#x2014;Campbell Hall&#x2014;Gidra journal&#x2014;AASC community service projects&#x2014;Student resistance to moving ethnic studies centers out of Campbell Hall&#x2014;Vietnam War protests on campus&#x2014;Student confrontations with police&#x2014;Majors in political science in final quarter at UCLA&#x2014;Involvement with AASC after graduation&#x2014;Lessons and takeaways from ethnic studies movement.</mods:tableOfContents>
+          </mods:relatedItem>
+          <mods:relatedItem type="series">
+            <mods:titleInfo>
+              <mods:title>UCLA Asian American Studies</mods:title>
+            </mods:titleInfo>
+            <mods:identifier>21198/zz002khbm0</mods:identifier>
+            <mods:abstract>These interviews were undertaken with the intention of documenting the rise of Asian American studies at UCLA and the founding of the Asian American Studies Center. However, shortly after this series was begun, the UCLA Asian American Studies Center undertook its own oral history project to document the early days of Asian American studies at UCLA and the founding of the center, and so this project was not pursued any further.</mods:abstract>
+          </mods:relatedItem>
+        </mods:mods>
+      </metadata>
+    </record>
+  </ListRecords>
+</OAI-PMH>
