@@ -58,23 +58,25 @@ Optional: Contact DevSupport for Argo account for log access
 
 ### Application Only Changes
 
-- Create a branch and create the changes to the application code.
+- Create a branch and make changes to the application code.
 
-- The `version` field must be incremented in `charts/Chart.yaml`.
-
-- Submit a pull request. On _submission_ or merge of a pull request, a container image is built and pushed to Docker Hub.
+- Submit a pull and review request. On _submission_ of a pull request, a container image is built and pushed to Docker Hub. Update the pull request and incorporate any change requests required from the review.
 
 - Navigate to Docker Hub and note the image tag, which is the first 8 characters of the hash.
 
-- In the appropriate `charts/[envrionment]-oralhistory-values.yaml` file, update the `image: tag` value to the tag copied from above.
+- In the appropriate `charts/[environment]-oralhistory-values.yaml` file, update the `image: tag` value to the tag copied from Docker Hub in the previous step. This should be the final commit before merging the pull request.
 
-- Commit and update the pull request to reflect the new build. Because a pull request is submitted another container image build will be triggered -- using this process, the deployed image is always at least one "behind" the most recently submitted pull request.
+- Update the pull request to reflect the final commit added for the new image created.
+  Because a pull request will be updated, another container image build will be triggered -- using this process, the deployed image is always at least one "behind" the most recently submitted pull request.
 
-With the `image: tag` value updated a build will automatically be deployed when updating `[stage,test]-oralhistory-values.yaml`. For production, the file should be updated and DevSupport notified.
+On merging and pushing this change to `main`, the new `image: tag` value will trigger a new deployment. This process is automatic when updating `[stage,test]-oralhistory-values.yaml`.
+
+For production, `prod-oralhistory-values.yaml` should be updated and DevSupport notified, and is not automatically deployed.
 
 ### Chart Changes
 
-If there are changes to files under `templates/`, an extra step is required to propagate the chart changes.
+If there are changes to files under `templates/`, extra steps are required to propagate the chart changes.
 
+- The `version` field must be incremented in `charts/Chart.yaml`
 - Submit a pull request to the [gitops_kubernetes](https://github.com/UCLALibrary/gitops_kubernetes) repository.
 - The pull request should increment the `sources : targetRevision` value under the appropriate environment section in the `apps\apps-team-prod-environment-values.yaml` file.
