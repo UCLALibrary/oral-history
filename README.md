@@ -60,7 +60,7 @@ Optional: Contact DevSupport for Argo account for log access
 
 - Create a branch and make changes to the application code.
 
-- Submit a pull and review request. On _submission_ of a pull request, a container image is built and pushed to Docker Hub. Update the pull request and incorporate any change requests required from the review.
+- Submit a pull and review request. On [**submission** of a pull request](https://github.com/UCLALibrary/oral-history/blob/main/.github/workflows/build-dockerhub.yml), a container image is built and pushed to Docker Hub. Update the pull request and incorporate any change requests required from the review. Any new commits or changes to the pull request will trigger a new container image to be created and pushed to Docker Hub.
 
 - Navigate to Docker Hub and note the image tag, which is the first 8 characters of the hash.
 
