@@ -58,9 +58,9 @@ Optional: Contact DevSupport for Argo account for log access
 
 ### Application Only Changes
 
-- Create a branch and create the changes to the application code
+- Create a branch and create the changes to the application code.
 
-- The `version` field must be incremented in `charts/Chart.yaml`
+- The `version` field must be incremented in `charts/Chart.yaml`.
 
 - Submit a pull request. On _submission_ or merge of a pull request, a container image is built and pushed to Docker Hub.
 
@@ -72,8 +72,9 @@ Optional: Contact DevSupport for Argo account for log access
 
 With the `image: tag` value updated a build will automatically be deployed when updating `[stage,test]-oralhistory-values.yaml`. For production, the file should be updated and DevSupport notified.
 
-## Production Notes:
+### Chart Changes
 
-Regarding `docker-compose.production.yml`: The delayed_job container is for scaling out processing of peaks for all of the audio files.
-However, the web container always has one worker.
-Stopping the delayed_job container will not stop jobs from being run.
+If there are changes to files under `templates/`, an extra step is required to propagate the chart changes.
+
+- Submit a pull request to the [gitops_kubernetes](https://github.com/UCLALibrary/gitops_kubernetes) repository.
+- The pull request should increment the `sources : targetRevision` value under the appropriate environment section in the `apps\apps-team-prod-environment-values.yaml` file.
