@@ -1,16 +1,15 @@
 # Docker Development Setup
 
 - Install Docker ([macOS](https://docs.docker.com/docker-for-mac/install/)/[Windows](https://docs.docker.com/docker-for-windows/install/)/[Linux](https://docs.docker.com/engine/install/))
-- `.env` is populated with good defaults.
 - Copy `.env` to `.env.development`
-- Build project and start up
+- Run `docker compose up --build`
 
 ```bash
 docker compose build
 docker compose up
 ```
 
-- Visit 127.0.0.1:8000 in your browser.
+- Visit [127.0.0.1:8000](127.0.0.1:8000) in your browser.
 - The first time the application is brought up, some database updates need to be made due to shifting dependencies
 
 - Identify your postgres container and run the following:
@@ -40,8 +39,14 @@ docker compose exec web bundle exec rake import[100]
 ```
 
 - Sign into the Admin Dashboard
-  Navigate to https://127.0.0.1:8000/users/sign_in
+  Navigate to [https://127.0.0.1:8000/users/sign_in](https://127.0.0.1:8000/users/sign_in)
   Login with default the seeded user and password at db/seeds.rb
+
+  The default development username and password are:
+
+  - admin@example.com
+  - password
+
   Note you can add those ENV variable to your .env file to update
   the values in one place. But deafults are set so make sure you
   update for produciton environment.
