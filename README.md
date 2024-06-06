@@ -1,36 +1,18 @@
 # Docker Development Setup
 
 - Install Docker ([macOS](https://docs.docker.com/docker-for-mac/install/)/[Windows](https://docs.docker.com/docker-for-windows/install/)/[Linux](https://docs.docker.com/engine/install/))
+
 - Copy `.env` to `.env.development`
 - Run `docker compose up --build`
 
-```bash
-docker compose build
-docker compose up
-```
+If you are running Linux, some additional steps are required:
 
-- Visit [127.0.0.1:8000](127.0.0.1:8000) in your browser.
-- The first time the application is brought up, some database updates need to be made due to shifting dependencies
+- A local user/group on your (host) machine must match the `app` user.
+- Create a new user/group with uid/gid 9999.
+- Set the proper permissions inside the `web` container.
+- Make sure you are in `/home/app/webapp` and run `chown -R app:app .`
 
-- Identify your postgres container and run the following:
-
-```
-docker ps
-# Note container id below
-a320a4fabaac   postgres:15                    "docker-entrypoint.s…"
-# Shell into container
-docker exec -it [container id from above] /bin/bash
-
-/bin/psql --username=postgres
-
-ALTER DATABASE oral_history REFRESH COLLATION VERSION;
-ALTER DATABASE oral_history_test REFRESH COLLATION VERSION;
-ALTER DATABASE postgres REFRESH COLLATION VERSION;
-ALTER DATABASE template0 REFRESH COLLATION VERSION;
-ALTER DATABASE template1 REFRESH COLLATION VERSION;
-```
-
-- Load database and import data
+Load database and import some sample data using the following commands
 
 ```
 docker compose exec web bundle exec rake db:migrate
@@ -38,36 +20,40 @@ docker compose exec web bundle exec rake db:seed
 docker compose exec web bundle exec rake import[100]
 ```
 
-- Sign into the Admin Dashboard
-  Navigate to [https://127.0.0.1:8000/users/sign_in](https://127.0.0.1:8000/users/sign_in)
-  Login with default the seeded user and password at db/seeds.rb
+If you get an error on the final line, and are using the `zsh` shell, you will need to escape the square brackets.
 
-  The default development username and password are:
-
-  - admin@example.com
-  - password
-
-  Note you can add those ENV variable to your .env file to update
-  the values in one place. But deafults are set so make sure you
-  update for produciton environment.
-
-- Common Developer Recipes:
-  Drop into a bash console inside docker container:
-  `docker compose exec container-name bash`
-  Example: `docker compose exec web bash`
-
-  Drop into a sh console inside docker container:
-  `docker compose exec container-name sh`
-  Example: `docker compose exec web sh`
-  Drop into a rails console:
-  `docker compose exec bundle exec rails c`
+```
+docker compose exec web bundle exec rake import\[100\]
+```
 
 **Note:** The `100` in `import[100]` limits the number of assets initially loaded. You may adjust this as desired.
 
-## Development Notes
+At this point you should be able to access the application at [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-When performing an import the system will attempt to download and process the audio files to create the peak files. This is very CPU & time intense.
-**To avoid this** change `MAKE_WAVES` in your `.env` to false (or delete it).
+Sign into the Admin Dashboard
+
+- Navigate to [http://127.0.0.1:8000/users/sign_in](http://127.0.0.1:8000/users/sign_in)
+
+The default development username and password are:
+
+- `admin@example.com`
+- `password`
+
+Common Developer Recipes:
+
+Drop into a bash console inside docker container:
+
+- `docker compose exec container-name bash`
+- Example: `docker compose exec web bash`
+
+Drop into a sh console inside docker container:
+
+- `docker compose exec container-name sh`
+- Example: `docker compose exec web sh`
+
+Drop into a rails console:
+
+- `docker compose exec bundle exec rails c`
 
 # Build and Deploy Process
 
