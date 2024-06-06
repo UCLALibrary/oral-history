@@ -5,12 +5,46 @@
 - Copy `.env` to `.env.development`
 - Run `docker compose up --build`
 
-If you are running Linux, some additional steps are required:
+## Special Linux instructions
 
-- A local user/group on your (host) machine must match the `app` user.
-- Create a new user/group with uid/gid 9999.
-- Set the proper permissions inside the `web` container.
-- Make sure you are in `/home/app/webapp` and run `chown -R app:app .`
+If you are running Linux, some additional steps are required to set up a suitable host environment,
+due to the current implementation in `Dockerfile` and `docker-compose.yml`.
+
+1. A local user/group on your (host) machine must match the `app` user, with uid/gid 9999.
+2. Set the proper permissions inside the `web` container.
+
+This worked, in a Debian (via WSL2) host environment:
+```
+# Become root, or run each of the following via sudo
+sudo bash
+
+# Step 1, from above
+# The group and user can be called anything on the host; this uses oh_public for both
+# Create a group with gid 9999, to match the web container's app user
+groupadd -g 9999 oh_public
+
+# Create a user with uid 9999, also matching web's app user
+# Also create home directory, and set bash shell since we're not animals
+useradd oh_public -u 9999 -g 9999 -d /home/oh_public -m -s /bin/bash -c "For testing OH public build"
+
+# Add the user to the docker group, assuming you have one,
+# since running docker as root on the host is bad
+usermod -a -G docker oh_public
+
+# Step 2, from above
+# Since the web image is built as root, and some things run in it as root,
+# the first run can create some directories inside /home/app/webapp as root
+# instead of as the app user.  This means the app user... can't write to them.
+
+# Start the application and monitor logs.  If you see repeated messages like this:
+
+web_1       | /usr/local/rvm/gems/ruby-2.7.7/gems/bootsnap-1.4.9/lib/bootsnap/compile_cache.rb:29:in `permission_error': bootsnap doesn't have permission to write cache entries in '/home/app/webapp/tmp/cache/bootsnap-compile-cache' (or, less likely, doesn't have permission to read '/usr/local/rvm/gems/ruby-2.7.7/gems/railties-6.1.7.3/lib/rails/commands.rb') (Bootsnap::CompileCache::PermissionError)
+
+# Run the following as root.  This only needs to be done once,
+# after the initial startup (or if you remove the whole application and start over)
+cd /home/oh_public/oral-history # or wherever on the host this application is
+chown -R oh_public:oh_public .
+```
 
 Load database and import some sample data using the following commands
 
@@ -32,14 +66,14 @@ At this point you should be able to access the application at [http://127.0.0.1:
 
 Sign into the Admin Dashboard
 
-- Navigate to [http://127.0.0.1:8000/users/sign_in](http://127.0.0.1:8000/users/sign_in)
+- Navigate to [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
 The default development username and password are:
 
 - `admin@example.com`
 - `password`
 
-Common Developer Recipes:
+## Common Developer Recipes:
 
 Drop into a bash console inside docker container:
 
@@ -54,6 +88,10 @@ Drop into a sh console inside docker container:
 Drop into a rails console:
 
 - `docker compose exec bundle exec rails c`
+
+Drop into a postgresql console:
+
+- `docker compose exec postgres psql --username=postgres`
 
 # Build and Deploy Process
 
