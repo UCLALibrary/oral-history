@@ -103,7 +103,7 @@ Optional: Contact DevSupport for Argo account for log access
 
 - Submit a pull and review request. On [**submission** of a pull request](https://github.com/UCLALibrary/oral-history/blob/main/.github/workflows/build-dockerhub.yml), a container image is built and pushed to Docker Hub. Update the pull request and incorporate any change requests required from the review. Any new commits or changes to the pull request will trigger a new container image to be created and pushed to Docker Hub.
 
-- Navigate to Docker Hub and note the image tag, which is the first 8 characters of the hash.
+- Navigate to [Docker Hub](https://hub.docker.com/repository/docker/uclalibrary/oral-history) (login required) and note the image tag, which is the first 8 characters of the hash.
 
 - In the appropriate `charts/[environment]-oralhistory-values.yaml` file, update the `image: tag` value to the tag copied from Docker Hub in the previous step. This should be the final commit before merging the pull request.
 
