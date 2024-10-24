@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -22,10 +22,15 @@ Bundler.require(*Rails.groups)
 module OralHistory
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
-    config.autoloader = :classic
+    config.load_defaults 7.2
+
     config.active_record.yaml_column_permitted_classes = [Symbol, Date]
     config.active_record.use_yaml_unsafe_load = true
+
+    # Please, add to the `ignore` list any other `lib` subdirectories that do
+    # not contain `.rb` files, or that should not be reloaded or eager loaded.
+    # Common ones are `templates`, `generators`, or `middleware`, for example.
+    config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
     #
