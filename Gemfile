@@ -10,10 +10,10 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ jruby ]
 gem "bootsnap", require: false
-gem "blacklight", '~> 7.38.0'
+gem "blacklight", '8.0.1'
 gem "solr_wrapper", ">= 0.3", group: [:development, :test]
 gem "rsolr", ">= 1.0", "< 3"
-gem "bootstrap", "~> 4.0"
+gem "bootstrap", "~> 5.1"
 gem "twitter-typeahead-rails", "0.11.1.pre.corejavascript"
 gem "sassc-rails", "~> 2.1"
 gem "jquery-rails"
@@ -32,7 +32,7 @@ end
 
 # Original gems
 gem "delayed_job_web"
-gem "blacklight-marc", '< 8'
+gem "blacklight-marc", '8.1.4'
 gem "blacklight_dynamic_sitemap"
 gem "byebug", platforms: [:mri, :mingw, :x64_mingw], group: [:development, :test]
 gem "coffee-rails", '~> 4.2'

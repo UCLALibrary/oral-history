@@ -32,14 +32,14 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-# This will ensure that a field named email will not be referred to by a 
-# hash but by test-email instead. A tool like capybara can now bypass 
+# This will ensure that a field named email will not be referred to by a
+# hash but by test-email instead. A tool like capybara can now bypass
 # this security while still going through the captcha workflow.
 NegativeCaptcha.test_mode = true
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = Rails.root.join('spec', 'fixtures')
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

@@ -18,7 +18,6 @@
 //= require vendor/jquery.easing/js/jquery.easing.min
 //= require popper
 //= require bootstrap
-//= require blacklight/blacklight
 
 
 //= require_tree ./main
