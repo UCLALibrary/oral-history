@@ -193,20 +193,20 @@ service:
 
 ingress:
   enabled: false
-  ingressClassName: "nginx"
-  annotations:
-    cert-manager.io/cluster-issuer: sectigo-acme-clusterissuer
-    kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
-  hosts:
-    - host: oralhistory.library.ucla.edu
-      paths:
-        - "/"
-  tls:
-    - secretName: oralhistory-tls
-      hosts:
-        - oralhistory.library.ucla.edu
+  #ingressClassName: "nginx"
+  #annotations:
+  #  cert-manager.io/cluster-issuer: sectigo-acme-clusterissuer
+  #  kubernetes.io/tls-acme: "true"
+  #  nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+  #  nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+  #hosts:
+  #  - host: oralhistory.library.ucla.edu
+  #    paths:
+  #      - "/"
+  #tls:
+  #  - secretName: oralhistory-tls
+  #    hosts:
+  #      - oralhistory.library.ucla.edu
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
