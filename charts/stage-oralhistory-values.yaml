@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: uclalibrary/oral-history
   # changing this tag will cause a deploy via ArgoCD
-  # Make sure to add quotes. Seems like helm template 
+  # Make sure to add quotes. Seems like helm template
   # will convert integers to scientific notation in the checksum
   tag: "81115371"
   pullPolicy: Always
@@ -52,7 +52,7 @@ solr:
 postgresql:
   enabled: true
   image:
-    repository: bitnami/postgresql
+    repository: bitnamilegacy/postgresql
     # This is the image version, not the chart version.
     tag: 12.3.0
 
@@ -167,8 +167,7 @@ externalsecrets:
 # configure a registry token for access to your container registry, needs read permissions, create secret in Rancher, follow instructions:
 # https://ranchermanager.docs.rancher.com/v2.5/how-to-guides/new-user-guides/kubernetes-resources-setup/kubernetes-and-docker-registries#creating-a-registry
 # replace registry-token below with the name of the secret you created in the Rancher UI
-imagePullSecrets:
-  []
+imagePullSecrets: []
   # - registry-token
 fullnameOverride: "oral-history"
 
