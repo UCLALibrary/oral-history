@@ -35,7 +35,7 @@ solr:
     enabled: false
 
   image:
-    repository: bitnami/solr
+    repository: bitnamilegacy/solr
     # This is the image version, not the chart version.
     tag: 8.11.1
   auth:
