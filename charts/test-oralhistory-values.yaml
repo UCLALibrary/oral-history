@@ -38,7 +38,7 @@ solr:
     hostname: "oralhistory-test-solr.library.ucla.edu"
     path: "/"
     annotations:
-      cert-manager.io/cluster-issuer: sectigo-acme-clusterissuer
+      cert-manager.io/cluster-issuer: certinext
       kubernetes.io/tls-acme: "true"
       nginx.ingress.kubernetes.io/whitelist-source-range: "164.67.48.211/32"
     tls: true
@@ -197,7 +197,7 @@ ingress:
   enabled: "true"
   ingressClassName: "nginx"
   annotations:
-    cert-manager.io/cluster-issuer: sectigo-acme-clusterissuer
+    cert-manager.io/cluster-issuer: certinext
     kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
