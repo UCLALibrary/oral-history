@@ -34,7 +34,7 @@ solr:
 
   ingress:
     enabled: true
-    ingressClassName: "nginx"
+    ingressClassName: "traefik"
     hostname: "oralhistory-test-solr.library.ucla.edu"
     path: "/"
     annotations:
@@ -195,7 +195,7 @@ service:
 
 ingress:
   enabled: "true"
-  ingressClassName: "nginx"
+  ingressClassName: "traefik"
   annotations:
     cert-manager.io/cluster-issuer: certinext
     kubernetes.io/tls-acme: "true"
